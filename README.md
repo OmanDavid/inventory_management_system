@@ -24,6 +24,8 @@ inventory_management_system/
 │   └── external_api.py   # OpenFoodFacts integration
 ├── cli/
 │   └── cli.py             # CLI admin client (talks to the API over HTTP)
+├── frontend/               # React (Vite) admin UI — see frontend/README.md
+│   └── src/
 ├── tests/
 │   ├── conftest.py
 │   ├── test_routes.py
@@ -55,12 +57,22 @@ inventory_management_system/
    ```bash
    python run.py
    ```
-   The API will be live at `http://127.0.0.1:5000`.
+   The API will be live at `http://127.0.0.1:5000`. CORS is enabled
+   (`flask-cors`) so the React frontend can call it from a different port.
 
 5. In a **second terminal** (with the venv activated), run the CLI:
    ```bash
    python cli/cli.py
    ```
+
+6. Or, in a second terminal, run the React frontend instead — see
+   [`frontend/README.md`](frontend/README.md) for setup. Short version:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+   The UI will be live at `http://localhost:5173`.
 
 ## API Endpoints
 
