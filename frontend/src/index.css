@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-paper: #f2f3ee;
+  --color-panel: #fbfbf8;
+  --color-ink: #1b1f23;
+  --color-ink-soft: #565c56;
+  --color-line: #d8d6cc;
+  --color-shelf: #2f6f62;
+  --color-shelf-soft: #e3ede9;
+  --color-alert: #c97a2b;
+  --color-alert-soft: #f6e8d6;
+  --color-danger: #b23a32;
+  --color-danger-soft: #f5e2df;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Barcode-strip signature element: repeating bars of uneven width,
+   used as a section divider and as the empty/loading state motif. */
+.barcode-strip {
+  height: 22px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-ink) 0px,
+    var(--color-ink) 2px,
+    transparent 2px,
+    transparent 5px,
+    var(--color-ink) 5px,
+    var(--color-ink) 6px,
+    transparent 6px,
+    transparent 10px,
+    var(--color-ink) 10px,
+    var(--color-ink) 13px,
+    transparent 13px,
+    transparent 16px
+  );
+  opacity: 0.85;
+}
+
+.barcode-strip.dim {
+  opacity: 0.12;
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-line);
+  background: white;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+}
+.field:focus {
+  outline: 2px solid var(--color-shelf);
+  outline-offset: 1px;
+  border-color: var(--color-shelf);
+}
+
+.btn-primary {
+  border-radius: 0.375rem;
+  background: var(--color-shelf);
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  transition: background-color 0.15s ease;
+}
+.btn-primary:hover {
+  background: #275b50;
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  background: white;
+}
+.btn-ghost:hover {
+  background: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-shelf);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-shelf);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
